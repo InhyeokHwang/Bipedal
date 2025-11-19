@@ -1,0 +1,12 @@
+# Default initial positions for bipedal_robot's ros2_control fake system
+
+initial_positions:
+  left_bottom_leg_left_foot-left_bottom_leg: -0.6919
+  left_motor_left_shoulder--left_motor: 0
+  left_shoulder_left_top_leg-left_shoulder: -1.047
+  left_top_leg_left_bottom_leg-left_top_leg: -1.724
+  right_bottom_leg_right_foot-right_bottom_leg: 0.713
+  right_motor_right_shoulder-right_motor: 0
+  right_shoulder_right_top_leg-right_shoulder: 1.047
+  right_top_leg_right_bottom_leg--right_top_leg: 1.714
+

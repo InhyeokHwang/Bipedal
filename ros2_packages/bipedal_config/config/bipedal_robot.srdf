@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="bipedal_robot">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="left_leg_controller">
+        <joint name="left_motor_left_shoulder--left_motor"/>
+        <joint name="left_shoulder_left_top_leg-left_shoulder"/>
+        <joint name="left_top_leg_left_bottom_leg-left_top_leg"/>
+        <joint name="left_bottom_leg_left_foot-left_bottom_leg"/>
+    </group>
+    <group name="right_leg_controller">
+        <joint name="right_motor_right_shoulder-right_motor"/>
+        <joint name="right_shoulder_right_top_leg-right_shoulder"/>
+        <joint name="right_top_leg_right_bottom_leg--right_top_leg"/>
+        <joint name="right_bottom_leg_right_foot-right_bottom_leg"/>
+    </group>
+    <group name="total_controller">
+        <group name="left_leg_controller"/>
+        <group name="right_leg_controller"/>
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="default_pose" group="total_controller">
+        <joint name="left_bottom_leg_left_foot-left_bottom_leg" value="-0.6919"/>
+        <joint name="left_motor_left_shoulder--left_motor" value="0"/>
+        <joint name="left_shoulder_left_top_leg-left_shoulder" value="-1.047"/>
+        <joint name="left_top_leg_left_bottom_leg-left_top_leg" value="-1.724"/>
+        <joint name="right_bottom_leg_right_foot-right_bottom_leg" value="0.713"/>
+        <joint name="right_motor_right_shoulder-right_motor" value="0"/>
+        <joint name="right_shoulder_right_top_leg-right_shoulder" value="1.047"/>
+        <joint name="right_top_leg_right_bottom_leg--right_top_leg" value="1.714"/>
+    </group_state>
+    <group_state name="start_pose" group="total_controller">
+        <joint name="left_bottom_leg_left_foot-left_bottom_leg" value="-0.6919"/>
+        <joint name="left_motor_left_shoulder--left_motor" value="0"/>
+        <joint name="left_shoulder_left_top_leg-left_shoulder" value="-0.8727"/>
+        <joint name="left_top_leg_left_bottom_leg-left_top_leg" value="-1.3962"/>
+        <joint name="right_bottom_leg_right_foot-right_bottom_leg" value="0.713"/>
+        <joint name="right_motor_right_shoulder-right_motor" value="0"/>
+        <joint name="right_shoulder_right_top_leg-right_shoulder" value="0.8726"/>
+        <joint name="right_top_leg_right_bottom_leg--right_top_leg" value="1.2362"/>
+    </group_state>
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="virtual_joint" type="fixed" parent_frame="world" child_link="base_link"/>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="body_shell" link2="left_motor" reason="Never"/>
+    <disable_collisions link1="body_shell" link2="left_mt_connector" reason="Adjacent"/>
+    <disable_collisions link1="body_shell" link2="right_motor" reason="Never"/>
+    <disable_collisions link1="body_shell" link2="right_mt_connector" reason="Adjacent"/>
+    <disable_collisions link1="left_bottom_leg" link2="left_foot" reason="Adjacent"/>
+    <disable_collisions link1="left_bottom_leg" link2="left_top_leg" reason="Adjacent"/>
+    <disable_collisions link1="left_motor" link2="left_mt_connector" reason="Adjacent"/>
+    <disable_collisions link1="left_motor" link2="left_shoulder" reason="Adjacent"/>
+    <disable_collisions link1="left_motor" link2="left_top_leg" reason="Never"/>
+    <disable_collisions link1="left_motor" link2="right_motor" reason="Never"/>
+    <disable_collisions link1="left_motor" link2="right_mt_connector" reason="Never"/>
+    <disable_collisions link1="left_motor" link2="right_shoulder" reason="Never"/>
+    <disable_collisions link1="left_mt_connector" link2="right_motor" reason="Never"/>
+    <disable_collisions link1="left_mt_connector" link2="right_mt_connector" reason="Never"/>
+    <disable_collisions link1="left_mt_connector" link2="right_shoulder" reason="Never"/>
+    <disable_collisions link1="left_shoulder" link2="left_top_leg" reason="Adjacent"/>
+    <disable_collisions link1="left_shoulder" link2="right_motor" reason="Never"/>
+    <disable_collisions link1="left_shoulder" link2="right_mt_connector" reason="Never"/>
+    <disable_collisions link1="left_shoulder" link2="right_shoulder" reason="Never"/>
+    <disable_collisions link1="right_bottom_leg" link2="right_foot" reason="Adjacent"/>
+    <disable_collisions link1="right_bottom_leg" link2="right_top_leg" reason="Adjacent"/>
+    <disable_collisions link1="right_motor" link2="right_mt_connector" reason="Adjacent"/>
+    <disable_collisions link1="right_motor" link2="right_shoulder" reason="Adjacent"/>
+    <disable_collisions link1="right_motor" link2="right_top_leg" reason="Never"/>
+    <disable_collisions link1="right_shoulder" link2="right_top_leg" reason="Adjacent"/>
+</robot>

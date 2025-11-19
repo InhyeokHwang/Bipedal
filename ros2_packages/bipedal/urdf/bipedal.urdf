@@ -1,0 +1,351 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="bipedal_robot">
+
+    <material name="orange">
+        <color rgba="0.95 0.55 0.20 1.0"/>
+    </material>
+    <material name="blue">
+        <color rgba="0.20 0.50 0.90 1.0"/>
+    </material>
+
+    <!-- Virtual Link-->
+    <link name="base_link"/>
+
+    <!-- Links -->
+    <link name="body_shell">
+        <inertial>
+            <origin xyz="0.00033207183830385816 0.018142077893776785 0.023827831840419554" rpy="0.0 0.0 0.0" />
+            <mass value="10.033763369242301" />
+            <inertia ixx="0.15611637052890423" iyy="0.1730969880686611" izz="0.2245586546741583" ixy="-7.658783630662625e-06" iyz="-0.0019046582764123748" ixz="-3.570709396641354e-05" />
+        </inertial>
+        <visual name="body_shell_visual">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/body_shell.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="orange"/>
+        </visual>
+        <collision name="body_shell_collision">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/body_shell.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="left_foot">
+        <inertial>
+            <origin xyz="-0.0819916820768551 0.01141894020030132 -0.02326275966356384" rpy="-3.3881317890172006e-21 -0.0 2.168404344971009e-19" />
+            <mass value="5.740349730733042" />
+            <inertia ixx="0.018444410331753883" iyy="0.008076334834834196" izz="0.016507667762878944" ixy="0.0008738300083943462" iyz="4.127268336880879e-05" ixz="-0.0001909049604645307" />
+        </inertial>
+        <visual name="left_foot_visual">
+            <origin xyz="0.36326438017108087 -0.02902432433013756 -0.2347217650604735" rpy="0.009926219731574993 -1.5620696808117032 3.139896470601022" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/left_foot.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision name="left_foot_collision">
+            <origin xyz="0.36326438017108087 -0.02902432433013756 -0.2347217650604735" rpy="0.009926219731574993 -1.5620696808117032 3.139896470601022" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/left_foot.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="right_foot">
+        <inertial>
+            <origin xyz="0.081991624815171 -0.011418980490479234 0.023262750025891066" rpy="0.0 -0.0 2.168404344971009e-19" />
+            <mass value="5.740375032006935" />
+            <inertia ixx="0.01844448950387695" iyy="0.008076351147330506" izz="0.01650773447335254" ixy="0.0008738240560570885" iyz="4.1273561502560766e-05" ixz="-0.0001909052717197224" />
+        </inertial>
+        <visual name="right_foot_visual">
+            <origin xyz="-0.36326438550542733 0.029024324216390066 0.23472175836191575" rpy="-3.131666433858324 -1.5620696808117012 3.1398964706010224" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/right_foot.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision name="right_foot_collision">
+            <origin xyz="-0.36326438550542733 0.029024324216390066 0.23472175836191575" rpy="-3.131666433858324 -1.5620696808117012 3.1398964706010224" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/right_foot.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="left_bottom_leg">
+        <inertial>
+            <origin xyz="-0.10332849366541012 -0.00046739997220666133 0.004042119862935074" rpy="3.388131789017202e-21 -2.1684043449710093e-19 0.0" />
+            <mass value="7.052600997562334" />
+            <inertia ixx="0.012968459786086366" iyy="0.0380108756278655" izz="0.03860479820041426" ixy="-0.0004790924486793623" iyz="-1.872232219438408e-05" ixz="-0.0026017533694438558" />
+        </inertial>
+        <visual name="left_bottom_leg_visual">
+            <origin xyz="0.1730281821989333 0.03272288151361353 0.2126587076029749" rpy="3.1398906645540046 1.5602651020150287 3.141592653589793" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/left_bottom_leg.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision name="left_bottom_leg_collision">
+            <origin xyz="0.1730281821989333 0.03272288151361353 0.2126587076029749" rpy="3.1398906645540046 1.5602651020150287 3.141592653589793" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/left_bottom_leg.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="right_bottom_leg">
+        <inertial>
+            <origin xyz="0.10332793266876664 -0.00046728028746515274 0.0040421511413784115" rpy="0.0 -0.0 0.0" />
+            <mass value="7.052573600636437" />
+            <inertia ixx="0.012968340984398585" iyy="0.03801074515169537" izz="0.038604467673001644" ixy="0.0004789927801170941" iyz="-1.872275330981219e-05" ixz="0.0026017544071117796" />
+        </inertial>
+        <visual name="right_bottom_leg_visual">
+            <origin xyz="-0.1730281775927535 0.03272288134500559 0.2126587009692301" rpy="3.1398906645540277 -1.5602651020150264 3.1415926535897913" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/right_bottom_leg.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision name="right_bottom_leg_collision">
+            <origin xyz="-0.1730281775927535 0.03272288134500559 0.2126587009692301" rpy="3.1398906645540277 -1.5602651020150264 3.1415926535897913" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/right_bottom_leg.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="right_top_leg">
+        <inertial>
+            <origin xyz="-0.09577093573785071 -0.000106738080475135 0.02881180555202825" rpy="0.0 -0.0 0.0" />
+            <mass value="11.689833613915876" />
+            <inertia ixx="0.011807300528615672" iyy="0.07832135366786441" izz="0.08454639536411783" ixy="-2.723072085086438e-06" iyz="8.804731853964181e-07" ixz="0.0008372890516810994" />
+        </inertial>
+        <visual name="right_top_leg_visual">
+            <origin xyz="-0.025603872136559683 0.03208013359139863 -0.21001865942262948" rpy="2.220446049250305e-16 1.5707963267948952 0" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/right_top_leg.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision name="right_top_leg_collision">
+            <origin xyz="-0.025603872136559683 0.03208013359139863 -0.21001865942262948" rpy="2.220446049250305e-16 1.5707963267948952 0" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/right_top_leg.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="left_top_leg">
+        <inertial>
+            <origin xyz="-0.0958060357992786 -0.00010674503930890201 -0.02882229495770055" rpy="0.0 -0.0 0.0" />
+            <mass value="11.685909098839788" />
+            <inertia ixx="0.011802434681935092" iyy="0.07828040626231414" izz="0.08450705443546892" ixy="-2.804316250884144e-06" iyz="-8.449092869452573e-07" ixz="-0.0008245862513831015" />
+        </inertial>
+        <visual name="left_top_leg_visual">
+            <origin xyz="-0.025603872136559507 0.03208013012296634 0.2100186594226289" rpy="2.220446049250305e-16 1.5707963267948952 0" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/left_top_leg.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision name="left_top_leg_collision">
+            <origin xyz="-0.025603872136559507 0.03208013012296634 0.2100186594226289" rpy="2.220446049250305e-16 1.5707963267948952 0" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/left_top_leg.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="left_shoulder">
+        <inertial>
+            <origin xyz="0.036559558168600306 0.00043809134249645165 0.013319375450702298" rpy="0.0 -0.0 0.0" />
+            <mass value="2.1294751815837487" />
+            <inertia ixx="0.002107453050371467" iyy="0.002373141332602538" izz="0.002755200907029201" ixy="-1.98140797265326e-05" iyz="-4.123661216271729e-06" ixz="4.712358334390925e-05" />
+        </inertial>
+        <visual name="left_shoulder_visual">
+            <origin xyz="-0.14430367649820075 -0.025595019953868113 -0.02387197653156771" rpy="-1.5707963267948966 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/left_shoulder.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision name="left_shoulder_collision">
+            <origin xyz="-0.14430367649820075 -0.025595019953868113 -0.02387197653156771" rpy="-1.5707963267948966 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/left_shoulder.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="right_shoulder">
+        <inertial>
+            <origin xyz="-0.03660580711526356 0.00043856799248129355 0.013087133777679219" rpy="0.0 -0.0 0.0" />
+            <mass value="2.126784728505797" />
+            <inertia ixx="0.002106666458485536" iyy="0.0023687545011304156" izz="0.0027509655598898924" ixy="1.9774042541151327e-05" iyz="-4.105316538760737e-06" ixz="-4.8423103186694134e-05" />
+        </inertial>
+        <visual name="right_shoulder_visual">
+            <origin xyz="0.14430367649820136 -0.02559501995386829 -0.024120910000000002" rpy="-1.5707963267948966 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/right_shoulder.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision name="right_shoulder_collision">
+            <origin xyz="0.14430367649820136 -0.02559501995386829 -0.024120910000000002" rpy="-1.5707963267948966 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/right_shoulder.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="left_mt_connector">
+        <inertial>
+            <origin xyz="0.08610779131794974 -0.04584009968353152 0.016128685860860876" rpy="0.0 -0.0 0.0" />
+            <mass value="2.6231528039810263" />
+            <inertia ixx="0.005786666207460548" iyy="0.00832637584934837" izz="0.011200097702211548" ixy="-0.0009525613677127313" iyz="-0.0007710949987066247" ixz="-0.0011674541928651458" />
+        </inertial>
+        <visual name="left_mt_connector_visual">
+            <origin xyz="-0.01500632 -0.04686796 0.02582585" rpy="0.0 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/left_mt_connector.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision name="left_mt_connector_collision">
+            <origin xyz="-0.01500632 -0.04686796 0.02582585" rpy="0.0 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/left_mt_connector.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="right_mt_connector">
+        <inertial>
+            <origin xyz="-0.08610778808199708 -0.045840101113946555 0.016128686240669952" rpy="0.0 -0.0 0.0" />
+            <mass value="2.6231526923538815" />
+            <inertia ixx="0.005786666072420403" iyy="0.008326375194875325" izz="0.011200096930645505" ixy="0.0009525610823738232" iyz="-0.000771095032239181" ixz="0.0011674542686023217" />
+        </inertial>
+        <visual name="right_mt_connector_visual">
+            <origin xyz="0.01500632 -0.04686796 0.02582585" rpy="0.0 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/right_mt_connector.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision name="right_mt_connector_collision">
+            <origin xyz="0.01500632 -0.04686796 0.02582585" rpy="0.0 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/right_mt_connector.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="right_motor">
+        <inertial>
+            <origin xyz="-2.9107464882827115e-10 -2.9106277299462137e-09 -0.02550000439880919" rpy="0.0 -0.0 0.0" />
+            <mass value="1.5756109800592792" />
+            <inertia ixx="0.0008349695281650148" iyy="0.0008349695281650443" izz="0.0009869116964743713" ixy="-7.847455805795258e-35" iyz="-5.361330934430941e-19" ixz="1.6058949515502472e-18" />
+        </inertial>
+        <visual name="right_motor_visual">
+            <origin xyz="0.14422904 0.0252236 -0.026879089999999998" rpy="1.5707963267948968 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/right_motor.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision name="right_motor_collision">
+            <origin xyz="0.14422904 0.0252236 -0.026879089999999998" rpy="1.5707963267948968 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/right_motor.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="left_motor">
+        <inertial>
+            <origin xyz="2.9107468435540797e-10 2.9106277255053213e-09 0.025500004398809187" rpy="0.0 -0.0 0.0" />
+            <mass value="1.575610980059279" />
+            <inertia ixx="0.0008349695281650155" iyy="0.0008349695281650374" izz="0.0009869116964743574" ixy="5.41203848675535e-35" iyz="-8.889969729282312e-20" ixz="-1.0504003710392386e-18" />
+        </inertial>
+        <visual name="left_motor_visual">
+            <origin xyz="-0.14422904 -0.0252236 0.026879089999999998" rpy="-1.5707963267948966 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/left_motor.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision name="left_motor_collision">
+            <origin xyz="-0.14422904 -0.0252236 0.026879089999999998" rpy="-1.5707963267948966 -0.0 0.0" />
+            <geometry>
+                <mesh filename="package://bipedal/meshes/left_motor.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- Joints -->
+    <joint name="base_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="body_shell"/>
+        <origin xyz="0 0 0.5" rpy="0 0 0"/>
+    </joint>
+
+    <joint name="body_shell_left_mt_connector---body_shell" type="fixed">
+        <origin xyz="0.01500632 0.04686796 -0.02582585" rpy="0.0 -0.0 0.0" />
+        <parent link="body_shell" />
+        <child link="left_mt_connector" />
+    </joint>
+    <joint name="body_shell_right_mt_connector--body_shell" type="fixed">
+        <origin xyz="-0.01500632 0.04686796 -0.02582585" rpy="0.0 -0.0 0.0" />
+        <parent link="body_shell" />
+        <child link="right_mt_connector" />
+    </joint>
+    <joint name="right_mt_connector_right_motor--right_mt_connector" type="fixed">
+        <origin xyz="-0.12922272 -0.019988870000000002 0.051049449999999996" rpy="-1.5707963267948968 -0.0 0.0" />
+        <parent link="right_mt_connector" />
+        <child link="right_motor" />
+    </joint>
+    <joint name="left_mt_connector_left_motor-left_mt_connector" type="fixed">
+        <origin xyz="0.12922272 -0.019988870000000002 0.051049449999999996" rpy="1.5707963267948966 -0.0 0.0" />
+        <parent link="left_mt_connector" />
+        <child link="left_motor" />
+    </joint>
+    <joint name="right_motor_right_shoulder-right_motor" type="continuous">
+        <origin xyz="0.0 0.0 -0.051" rpy="-3.141592653589793 -0.0 0.0" />
+        <parent link="right_motor" />
+        <child link="right_shoulder" />
+        <axis xyz="0.0 0.0 -1.0" />
+    </joint>
+    <joint name="left_motor_left_shoulder--left_motor" type="continuous">
+        <origin xyz="0.0 0.0 0.051" rpy="2.719618493661524e-16 -0.0 0.0" />
+        <parent link="left_motor" />
+        <child link="left_shoulder" />
+        <axis xyz="0.0 0.0 -1.0" />
+    </joint>
+    <joint name="right_shoulder_right_top_leg-right_shoulder" type="continuous">
+        <origin xyz="-0.06577861 4.440892098500626e-18 0.008051069999999995" rpy="-1.5707963267948952 2.2204460492503126e-16 1.5707963267948966" />
+        <parent link="right_shoulder" />
+        <child link="right_top_leg" />
+        <axis xyz="0.0 0.0 -1.0" />
+    </joint>
+    <joint name="right_top_leg_right_bottom_leg--right_top_leg" type="continuous">
+        <origin xyz="-0.19611023 -0.00026018999999999793 0.005488629999999973" rpy="-3.141592653589792 -0.0018046522783323076 3.1316605498963703" />
+        <parent link="right_top_leg" />
+        <child link="right_bottom_leg" />
+        <axis xyz="0.0 0.0 -1.0" />
+    </joint>
+    <joint name="left_top_leg_left_bottom_leg-left_top_leg" type="continuous">
+        <origin xyz="-0.19649051 -0.0003520399999999979 -0.005477619999999988" rpy="1.2839670607909703e-15 -0.00180465227833185 -0.009932103693549799" />
+        <parent link="left_top_leg" />
+        <child link="left_bottom_leg" />
+        <axis xyz="0.0 0.0 -1.0" />
+    </joint>
+    <joint name="right_bottom_leg_right_foot-right_bottom_leg" type="continuous">
+        <origin xyz="0.19054587634099457 0.00017918159310244874 -0.022314647473610415" rpy="1.4851960194663e-05 0.008719951551888941 -0.008229459783592878" />
+        <parent link="right_bottom_leg" />
+        <child link="right_foot" />
+        <axis xyz="0.0 0.0 1.0" />
+    </joint>
+    <joint name="left_bottom_leg_left_foot-left_bottom_leg" type="continuous">
+        <origin xyz="-0.190545866341504 0.00017918169239766524 -0.022314647491656105" rpy="-3.1415778016295985 -0.008719951551889402 0.00822945978371986" />
+        <parent link="left_bottom_leg" />
+        <child link="left_foot" />
+        <axis xyz="0.0 0.0 -1.0" />
+    </joint>
+    <joint name="left_shoulder_left_top_leg-left_shoulder" type="continuous">
+        <origin xyz="0.06577861 4.440892098500626e-18 0.008299999999999997" rpy="-1.570796326794898 2.2204460492503126e-16 1.5707963267948966" />
+        <parent link="left_shoulder" />
+        <child link="left_top_leg" />
+        <axis xyz="0.0 0.0 1.0" />
+    </joint>
+</robot>

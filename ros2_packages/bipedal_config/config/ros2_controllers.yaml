@@ -1,0 +1,60 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    left_leg_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    right_leg_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    total_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+left_leg_controller:
+  ros__parameters:
+    joints:
+      - left_motor_left_shoulder--left_motor
+      - left_shoulder_left_top_leg-left_shoulder
+      - left_top_leg_left_bottom_leg-left_top_leg
+      - left_bottom_leg_left_foot-left_bottom_leg
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+right_leg_controller:
+  ros__parameters:
+    joints:
+      - right_motor_right_shoulder-right_motor
+      - right_shoulder_right_top_leg-right_shoulder
+      - right_top_leg_right_bottom_leg--right_top_leg
+      - right_bottom_leg_right_foot-right_bottom_leg
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+total_controller:
+  ros__parameters:
+    joints:
+      - left_motor_left_shoulder--left_motor
+      - left_shoulder_left_top_leg-left_shoulder
+      - left_top_leg_left_bottom_leg-left_top_leg
+      - left_bottom_leg_left_foot-left_bottom_leg
+      - right_motor_right_shoulder-right_motor
+      - right_shoulder_right_top_leg-right_shoulder
+      - right_top_leg_right_bottom_leg--right_top_leg
+      - right_bottom_leg_right_foot-right_bottom_leg
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
