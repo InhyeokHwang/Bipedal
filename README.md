@@ -21,7 +21,7 @@ A collaborative bipedal robot motion control project developed by Hongik Univers
 ---
 
 # Paths
-Make sure to place **kist_robot_workspace** under `/home/` or you may need to adjust path configurations for:
+Make sure to place **bipedal_workspace** under `/home/` or you may need to adjust path configurations for:
 
 - **play_and_record_csv_trajectory**
 - **record_on_execute**
