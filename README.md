@@ -1,6 +1,10 @@
 # hongdae_kist_bipedal
 
-A collaborative bipedal robot motion control project developed by Hongik University and KIST AI Research Division.
+## 🏛️ Collaboration
+
+This project was conducted under the supervision of Dr. Hwa-Seop Lim,
+Director of the AI Research Division at KIST,
+in collaboration with the TATE Lab at Hongik University.
 
 ## 🎥 Demo
 
