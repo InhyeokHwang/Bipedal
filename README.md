@@ -1,10 +1,10 @@
 # hongdae_kist_bipedal
 
 ## 🏛️ Collaboration
+This project was conducted under the supervision of **Dr. Hwa-Seop Lim**,  
+Director of the **AI Research Division at KIST**,  
+and was carried out in collaboration with the **TATE Lab at Hongik University**.
 
-This project was conducted under the supervision of Dr. Hwa-Seop Lim,
-Director of the AI Research Division at KIST,
-in collaboration with the TATE Lab at Hongik University.
 
 ## 🎥 Demo
 
