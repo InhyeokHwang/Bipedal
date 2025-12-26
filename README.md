@@ -1,5 +1,3 @@
-# hongdae_kist_bipedal
-
 ## 🏛️ Collaboration
 This project was conducted under the supervision of **Dr. Hwa-Seop Lim**,  
 Director of the **AI Research Division at KIST**,  
